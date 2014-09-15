@@ -31,7 +31,6 @@ Plugin file locations:
 
  /usr/local/emhttp/plugins/denyhosts/denyhosts.page                     # page file for webGui menu system
  /usr/local/emhttp/plugins/denyhosts/denyhosts.php                      # webGui page code (settings)
- /usr/local/emhttp/plugins/denyhosts/denyhostsctl.php                   # webGui control code (on submit)
  /usr/local/emhttp/plugins/denyhosts/denyhosts.png                      # plugin icon file
  /usr/local/emhttp/plugins/denyhosts/device_status.png                  # plugin webgui image file
  /usr/local/emhttp/plugins/denyhosts/new_config.png                     # plugin webgui image file
@@ -41,8 +40,7 @@ Plugin file locations:
 
  /usr/bin/denyhosts.py                                                  # denyhosts python application
 
- /usr/local/denyhosts                                                   # denyhosts configuration directory
- /usr/local/denyhosts/data                                              # denyhosts work directory (default. should be relocated to non-volatile storage via webgui)
+ /usr/local/denyhosts                                                   # denyhosts configuration directory (default. should be relocated to non-volatile storage via webgui)
  
 -->
 
@@ -247,7 +245,6 @@ $denyhosts_datacheck = shell_exec ( "/etc/rc.d/rc.denyhosts datacheck" );
         <td>
           <span class="green-text"><?=$denyhosts_localplg?></span>
         </td>
-        <td>
         <td>
           <span class="green-text"><?=$denyhosts_remoteplg?></span>
         </td>
