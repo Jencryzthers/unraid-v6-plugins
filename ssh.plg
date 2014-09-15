@@ -41,7 +41,7 @@ Plugin file locations:
 -->
 
 <FILE Name="/boot/packages/putty-0.63-x86_64-1_fs.tgz" Run="upgradepkg --install-new">
-<URL>https://github.com/overbyrn/unraid-v6-plugins/releases/download/&name;/putty-0.63-x86_64-1_fs.tgz</URL>
+<URL>&packageURL;/putty-0.63-x86_64-1_fs.tgz</URL>
 </FILE>
 
 <FILE Name="/boot/config/plugins/&name;/read_me.txt">
@@ -137,6 +137,14 @@ iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN
 <FILE Name="/usr/local/emhttp/plugins/&name;/information.png" Type="base64">
 <INLINE>
 iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAKcSURBVDjLpZPLa9RXHMU/d0ysZEwmMQqZiTaP0agoaKGJUiwIxU0hUjtUQaIuXHSVbRVc+R8ICj5WvrCldJquhVqalIbOohuZxjDVxDSP0RgzyST9zdzvvffrQkh8tBs9yy9fPhw45xhV5X1U8+Yhc3U0LcEdVxdOVq20OA0ooQjhpnfhzuDZTx6++m9edfDFlZGMtXKxI6HJnrZGGtauAWAhcgwVnnB/enkGo/25859l3wIcvpzP2EhuHNpWF9/dWs/UnKW4EOGDkqhbQyqxjsKzMgM/P1ymhlO5C4ezK4DeS/c7RdzQoa3x1PaWenJjJZwT9rQ1gSp/js1jYoZdyfX8M1/mp7uFaTR8mrt29FEMQILr62jQ1I5kA8OF59jIItVA78dJertTiBNs1ZKfLNG+MUHX1oaURtIHEAOw3p/Y197MWHEJEUGCxwfHj8MTZIcnsGKxzrIURYzPLnJgbxvG2hMrKdjItjbV11CYKeG8R7ygIdB3sBMFhkem0RAAQ3Fuka7UZtRHrasOqhYNilOwrkrwnhCU/ON5/q04vHV48ThxOCuoAbxnBQB+am65QnO8FqMxNCjBe14mpHhxBBGCWBLxD3iyWMaYMLUKsO7WYH6Stk1xCAGccmR/Ozs/bKJuXS39R/YgIjgROloSDA39Deit1SZWotsjD8pfp5ONqZ6uTfyWn+T7X0f59t5fqDhUA4ry0fYtjJcWeZQvTBu4/VqRuk9/l9Fy5cbnX+6Od26s58HjWWaflwkusKGxjm1bmhkvLXHvh1+WMbWncgPfZN+qcvex6xnUXkzvSiYP7EvTvH4toDxdqDD4+ygT+cKMMbH+3MCZ7H9uAaDnqytpVX8cDScJlRY0YIwpAjcNcuePgXP/P6Z30QuoP4J7WbYhuQAAAABJRU5ErkJggg==
+</INLINE>
+</FILE>
+
+<FILE Name="/usr/local/emhttp/plugins/&name;/README.md">
+<INLINE>
+**&name; Plugin**
+
+This plugin extends upon the core SSH functionality built into unRAID 6
 </INLINE>
 </FILE>
 
@@ -246,7 +254,6 @@ $sshversion = shell_exec("/usr/bin/ssh -V 2>&1");
         </td>
         <td>Restart SSH Daemon</td>
         </tr>
-        <?$controls_exist = "true"?>
       <?else:?>
         <tr>
         <td width="30%">
@@ -256,12 +263,6 @@ $sshversion = shell_exec("/usr/bin/ssh -V 2>&1");
           </form>
         </td>
         <td>Start SSH Daemon</td>
-        </tr>
-        <?$controls_exist = "true"?>
-      <?endif;?>
-      <?if ($controls_exist=="false"):?>
-        <tr>
-          <td colspan="2" align="center">No Control Actions available</td>
         </tr>
       <?endif;?>
     </table>
@@ -413,14 +414,6 @@ checkRUNNING(document.ssh_settings);
 </body>
 </html>
 ]]>
-</INLINE>
-</FILE>
-
-<FILE Name="/usr/local/emhttp/plugins/&name;/README.md">
-<INLINE>
-**&name; Plugin**
-
-This plugin extends upon the core SSH functionality built into unRAID 6
 </INLINE>
 </FILE>
 
