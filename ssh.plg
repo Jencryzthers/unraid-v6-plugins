@@ -168,7 +168,7 @@ $ssh_running = file_exists( "/var/run/sshd.pid") ? "yes" : "no";
 $ssh_localplg = shell_exec('grep "<\!ENTITY version" /boot/config/plugins/ssh.plg | cut -d\" -f2');
 
 //Get remote plugin file version.  Uses Limetech plugin php to perform this function
-$ssh_remoteplg = shell_exec("/usr/local/sbin/plugin check ssh");
+$ssh_remoteplg = shell_exec("/usr/local/sbin/plugin check ssh.plg");
 
 //create array of users from passwd file where their UID is greater than or equal to 1000.  ie. assumed to be non-system users
 $useropts = array();

@@ -233,7 +233,7 @@ switch ($status) {
 $dropbox_localplg = shell_exec('grep "<\!ENTITY version" /boot/config/plugins/dropbox.plg | cut -d\" -f2');
 
 //Get remote plugin file version.  Uses Limetech plugin php to perform this function
-$dropbox_remoteplg = shell_exec("/usr/local/sbin/plugin check dropbox");
+$dropbox_remoteplg = shell_exec("/usr/local/sbin/plugin check dropbox.plg");
 
 //Determine versions of Dropbox application and CLI script
 $dropbox_appver = shell_exec("cat /usr/local/dropbox/.dropbox-dist/VERSION");

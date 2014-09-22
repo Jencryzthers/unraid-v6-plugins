@@ -174,7 +174,7 @@ $denyhosts_cfg = parse_ini_file( "/boot/config/plugins/denyhosts/denyhosts.cfg")
 $denyhosts_localplg = shell_exec('grep "<\!ENTITY version" /boot/config/plugins/denyhosts.plg | cut -d\" -f2');
 
 //Get remote plugin file version.  Uses Limetech plugin php to perform this function
-$denyhosts_remoteplg = shell_exec("/usr/local/sbin/plugin check denyhosts");
+$denyhosts_remoteplg = shell_exec("/usr/local/sbin/plugin check denyhosts.plg");
 
 // Determine version of denyhosts for display in webgui
 $denyhosts_localapp = shell_exec("/usr/bin/env python /usr/bin/denyhosts.py --version");

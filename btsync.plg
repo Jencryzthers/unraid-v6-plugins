@@ -233,7 +233,7 @@ $btsync_installed = file_exists( "/usr/local/btsync/btsync" ) ? "yes" : "no";
 $btsync_localplg = shell_exec('grep "<\!ENTITY version" /boot/config/plugins/btsync.plg | cut -d\" -f2');
 
 //Get remote plugin file version.  Uses Limetech plugin php to perform this function
-$btsync_remoteplg = shell_exec("/usr/local/sbin/plugin check btsync");
+$btsync_remoteplg = shell_exec("/usr/local/sbin/plugin check btsync.plg");
 
 // Determine version of denyhosts for display in webgui
 $btsync_appver = shell_exec("/usr/local/btsync/btsync --help|awk 'NR==1{print $3}'");
