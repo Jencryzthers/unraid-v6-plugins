@@ -81,7 +81,8 @@ source /boot/config/plugins/&name;/&name;.cfg
 if [[ ! -e /boot/config/plugins/&name;/dropbox-lnx.x86_64.tar.gz ]]; then
   echo "Downloading Dropbox application..."
   #wget -nv -P /tmp -O dropbox-lnx.x86_64.tar.gz "https://www.dropbox.com/download?plat=lnx.x86_64"
-  wget -P /tmp -O dropbox-lnx.x86_64.tar.gz "https://www.dropbox.com/download?plat=lnx.x86_64"
+  #wget -P /tmp -O dropbox-lnx.x86_64.tar.gz "https://www.dropbox.com/download?plat=lnx.x86_64"
+  curl -L -o /tmp/dropbox-lnx.x86_64.tar.gz "https://www.dropbox.com/download?plat=lnx.x86_64"
   if [ ! -f /tmp/dropbox-lnx.x86_64.tar.gz ]; then
     echo "** ERROR: something went wrong, Dropbox application did not download as expected. Plugin installation failed! **"
     exit 1
@@ -99,7 +100,8 @@ fi
 if [[ ! -e /boot/config/plugins/&name;/dropbox.py ]]; then
   echo "Downloading Dropbox python CLI wrapper script..."
   #wget -nv -q -P /tmp -O dropbox.py https://www.dropbox.com/download?dl=packages/dropbox.py
-  wget -P /tmp -O dropbox.py "https://www.dropbox.com/download?dl=packages/dropbox.py"
+  #wget -P /tmp -O dropbox.py "https://www.dropbox.com/download?dl=packages/dropbox.py"
+  curl -L -o /tmp/dropbox.py "https://www.dropbox.com/download?dl=packages/dropbox.py"
   if [ ! -f /tmp/dropbox.py ]; then
     echo "** ERROR: something went wrong, Dropbox python CLI script did not download as expected. Plugin installation failed! **"
     exit 1
