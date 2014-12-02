@@ -3,10 +3,10 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "ssh">
 <!ENTITY author     "overbyrn">
-<!ENTITY version    "2014.09.09">
+<!ENTITY version    "2014.12.01">
 <!ENTITY category   "Network Services">
-<!ENTITY pluginURL  "https://raw.github.com/overbyrn/unraid-v6-plugins/master/&name;.plg">
-<!ENTITY packageURL "https://github.com/overbyrn/unraid-v6-plugins/releases/download/&name;">
+<!ENTITY pluginURL  "https://raw.github.com/jencryzthers/unraid-v6-plugins/master/&name;.plg">
+<!ENTITY packageURL "https://github.com/jencryzthers/unraid-v6-plugins/releases/download/&name;">
 ]>
 
 <PLUGIN  name="&name;"
@@ -18,25 +18,24 @@
 <!--
 Copyright 2014, Rich Manton (overbyrn)
 
-This Plugin extends the core SSH support built into unRAID v6.
+This Plugin extends the core SSH support built into unRAID v6 (compatible with beta 12).
 
 Plugin file locations:
- /boot/config/plugins/ssh.plg      			                            # this file
+ /boot/config/plugins/ssh.plg      			                           				 # this file
 
- /boot/config/plugins/ssh/putty-0.63-x86_64-1_fs.tgz                    # putty package (required for puttygen)
- /boot/config/plugins/ssh/ssh.cfg                                       # non-volatile configuration
- /boot/config/plugins/ssh/read_me.txt                                   # Help File
+ /boot/config/plugins/ssh/putty-0.63-x86_64-1_fs.tgz                      # putty package (required for puttygen)
+ /boot/config/plugins/ssh/ssh.cfg                                       				 # non-volatile configuration
+ /boot/config/plugins/ssh/read_me.txt                                  			 # Help File
 
- /etc/rc.d/rc.ssh                                                       # plugin control script
+ /etc/rc.d/rc.ssh                                                       						 # plugin control script
 
- /usr/local/emhttp/plugins/ssh/ssh.page                                 # page file for webGui menu system
- /usr/local/emhttp/plugins/ssh/ssh.php                                  # webGui page
- /usr/local/emhttp/plugins/ssh/ssh.png                                  # plugin icon file
- /usr/local/emhttp/plugins/ssh/device_status.png                        # plugin webgui image file
- /usr/local/emhttp/plugins/ssh/new_config.png                           # plugin webgui image file
- /usr/local/emhttp/plugins/ssh/information.png                          # plugin webgui image file
+ /usr/local/emhttp/plugins/ssh/ssh.page											 # page file for webGui menu system
+ /usr/local/emhttp/plugins/ssh/ssh.png                                  			 # plugin icon file
+ /usr/local/emhttp/plugins/ssh/device_status.png                        	 # plugin webgui image file
+ /usr/local/emhttp/plugins/ssh/new_config.png                           	 # plugin webgui image file
+ /usr/local/emhttp/plugins/ssh/information.png                          		 # plugin webgui image file
 
- /var/run/ssh/ssh.pid                                                   # run-time pid file
+ /var/run/ssh/ssh.pid                                                   					 # run-time pid file
 
 -->
 
@@ -84,10 +83,10 @@ Verify you are able to login successfully with the private key.
 <FILE Name="/boot/config/plugins/&name;/&name;.cfg">
 <INLINE>
 SERVICE="enable"
-PORT="22"
+PORT="2222"
 USERLIST="-1"
 PERMITROOTLOGIN="no"
-MAXAUTHTRIES="6"
+MAXAUTHTRIES="4"
 PASSWORDAUTHENTICATION="yes"
 PERMITEMPTYPASSWORDS="no"
 GATEWAYPORTS="no"
@@ -154,12 +153,8 @@ Menu="NetworkServices"
 Title="SSH"
 Icon="&name;.png"
 ---
-</INLINE>
-</FILE>
-
-<FILE Name="/usr/local/emhttp/plugins/&name;/&name;.php">
-<INLINE>
 <![CDATA[
+
 <?PHP
 $ssh_cfg = parse_ini_file( "/boot/config/plugins/ssh/ssh.cfg");
 $ssh_running = file_exists( "/var/run/sshd.pid") ? "yes" : "no";
@@ -414,6 +409,12 @@ checkRUNNING(document.ssh_settings);
 </body>
 </html>
 ]]>
+</INLINE>
+</FILE>
+
+<FILE Name="/usr/local/emhttp/plugins/&name;/&name;.php">
+<INLINE>
+
 </INLINE>
 </FILE>
 
